@@ -1,0 +1,29 @@
+.navBarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid gray
+}
+
+.navBarContainer h1 {
+    padding-left: 14px;
+}
+
+.navLinksContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.navLinksContainer a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    transition: color 1s ease;
+    font-weight: 500
+  
+}
+
+.navLinksContainer a:hover {
+    color: purple;
+}
