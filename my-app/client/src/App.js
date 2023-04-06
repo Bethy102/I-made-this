@@ -4,6 +4,7 @@ import NavigationBar from './components/NavigationBar';
 import BrandPage from './pages/BrandPage';
 import {Routes, Route } from "react-router-dom"
 import ServicesPage from './pages/ServicesPage';
+import TrainingCard from './components/TrainingCard';
 // import AboutPage from './pages/AboutPage';
 
 function App() {

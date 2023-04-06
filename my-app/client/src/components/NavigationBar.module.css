@@ -3,7 +3,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 5px solid gray
+    border-bottom: 5px solid gray;
+    background-color: white;
+}
+.navBarContainer h1:hover{
+    cursor: pointer;
 }
 
 .navBarContainer h1 {

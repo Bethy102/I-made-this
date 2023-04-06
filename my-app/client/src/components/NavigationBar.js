@@ -6,7 +6,7 @@ const NavigationBar = () => {
 
  return (
     <div class={styles.navBarContainer}>
-        <h1>Brand</h1>
+        <h1 onClick={() => navigate("/")}>Brand</h1>
         <div class={styles.navLinksContainer}>
             <a onClick={() => navigate ("about")}>ABOUT</a>
             <a href="#">OUR TEAM</a>

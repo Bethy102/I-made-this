@@ -9,4 +9,4 @@ const Brand = () => {
     )
 }
 
-export default Homepage;
+export default Brand;
