@@ -9,9 +9,9 @@ const NavigationBar = () => {
         <h1 onClick={() => navigate("/")}>Brand</h1>
         <div class={styles.navLinksContainer}>
             <a onClick={() => navigate ("about")}>ABOUT</a>
-            <a href="#">OUR TEAM</a>
+            <a href="#"> TRAINERS</a>
             <a onClick={() => navigate ("/services")}>SERVICES</a>
-            <a href="#">CONTACT</a>
+            <a onClick={() => navigate ("contact")}>CONTACT</a>
             <a href="#">JOIN NOW</a>
         </div>
     </div>

@@ -1,4 +1,5 @@
-import About from "../components/About";
+// import styles from './AboutPage.module.css';
+import About from '../components/About';
 
 const AboutPage = () => {
     return (
