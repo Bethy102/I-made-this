@@ -1,0 +1,96 @@
+/* 
+.trainingInfoWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(6, 85px);
+    grid-template-areas:
+                        "a a a b b b ",
+                        "a a a c c c",
+                        "a a a c c c",
+                        "a a a c c c",
+                        "a a a c c c",
+                        "a a a . . d";
+    border: 10px solid black;
+    grid-gap: 20px;
+    width: auto;;
+    /* width: 400px;
+    height: 300px; */
+
+/* } */ 
+
+.trainersProfileContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 60px;
+    margin-right: 60px;
+    height: 450px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    background-color: white;
+}
+
+.trainersProfileContainer img {
+    min-width: 30%;
+    max-width: 40%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 0px;
+    /* object-position: -300px; */
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.styles.trainersInfo {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, 87px);
+    grid-template-areas: 
+                        "a a a"
+                        "b b b"
+                        "b b b"
+                        "b b b"
+                        ". . c"; 
+    grid-gap: 2px;
+    /* padding: 10px; */
+}
+/* /* } */
+
+/* .trainingInfoWrapper img {
+    z-index: 5;
+    grid-area: a;
+    max-width: 100px;
+    object-fit: fill;
+} */
+
+.trainersInfo span {
+    grid-area: a;
+    margin-top: 30px;
+    font-size: 35px;
+    font-weight: 500
+}
+
+.trainersInfo p  {
+    margin-left: 100px;
+    text-align: left;
+    line-height: 30px;
+    grid-area: b;
+    width: 500px;
+}
+.trainersInfo button {
+    grid-area: c;
+    /* width: 300px; */
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    font-size: 30px;
+    margin-right: 20px;
+    margin-left: 0;
+    margin-bottom: 10px;
+}
