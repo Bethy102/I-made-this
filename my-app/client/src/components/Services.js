@@ -5,7 +5,7 @@ const services = () => {
     return (
         <div>
             <TrainingCard imageLink={require("../images/Powerlifting.jpg")}>
-                <span>Weight training (resistance and strength training)</span>
+                <span>General Strength Training (resistance, weigth training)</span>
                 <p>Monthly stength coaching is idela for idivudauls looking to start
                 their strength journey, improve their bone health, or optimize performance.
                  1:1 in-person session 
@@ -44,10 +44,20 @@ const services = () => {
                 Lowers the risk of diabetes</p>
 
             </TrainingCard>
-            <TrainingCard imageLink={require("../images/cooking.jpg")}>
-            <span>Hungry for Health? Chef-crafted meals with care and love at your door!</span>
-            <p> All of our Wellness and Nutrition coaches are certified. They work with chefs to help you create nutrition and lifestyle habits to meet your health, weight loss, 
+            <TrainingCard imageLink={require("../images/nutrition.png")}>
+            <span> Hungry for Health? Nutrition </span>
+            <p> Chef-crafted meals with care and love at your door . 
+            All of our Wellness and Nutrition coaches are certified. 
+            They work with chefs to help you create nutrition and lifestyle habits to meet your health, weight loss, 
             and performance goals through delicious foods.</p>
+            </TrainingCard>
+
+            <TrainingCard imageLink={require("../images/bodybuilding.webp")}>
+            <span> bodybuilding</span>
+            <p> Build muscle, get strong, gain strength lose weight, get fit, boost your performance or even compete
+            Either for aestheti, career or even personal purposes, our bodybuilding program is the answer to many questions where everyone can be related .
+            </p>
+
             </TrainingCard>
         </div>
     )
