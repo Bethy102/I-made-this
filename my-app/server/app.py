@@ -3,8 +3,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 # from app import app, db
-from flask import render_template
-from models import Trainer, Client, Training, db
+from models import Trainer, Client, Training, db, Expertise
 
 
 # Create the Flask application instance
@@ -24,7 +23,7 @@ migrate = Migrate(app, db)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return "Index for Trainers/Expertise/Training/Client API"
 
 @app.route('/trainers', methods=['GET'])
 def trainers():
@@ -36,6 +35,18 @@ def trainers():
 def trainer_detail(trainer_id):
     trainer = Trainer.query.get(trainer_id)
     return make_response(jsonify(trainer.to_dict()), 200)
+
+@app.route('/expertises', methods=['GET'])
+def expertises():
+    expertises = Expertise.query.all()
+    expertises_dicts = [e.to_dict() for e in expertises]
+    return make_response(jsonify(expertises_dicts), 200)
+
+@app.route('/expertises/<int:trainer_id>', methods=['GET'])
+def  get_expertises ():
+    expertises = Expertise.query.get()
+    return make_response(jsonify(expertises.to_dict()),200)
+
 
 @app.route('/clients')
 def clients():
@@ -51,12 +62,14 @@ def client_detail(client_id):
 @app.route('/training-types')
 def training_types():
     training_types = Training.query.all()
-    return render_template('training_types.html', training_types=training_types)
+    return make_response(jsonify(training_types.to_dict()), 200)
+    # return render_template('training_types.html', training_types=training_types)
 
 @app.route('/training-type/<int:training_type_id>')
 def training_type_detail(training_type_id):
     training_type = Training.query.get(training_type_id)
-    return render_template('training_type_detail.html', training_type=training_type)
+    return make_response(jsonify(training_type.to_dict()),200)
+    # return render_template('training_type_detail.html', training_type=training_type)
 
 @app.route('/trainer/<int:trainer_id>/clients', methods=['GET', 'POST'])
 def trainer_clients(trainer_id):
@@ -66,7 +79,8 @@ def trainer_clients(trainer_id):
         client = Client(name=client_name, trainer=trainer)
         db.session.add(client)
         db.session.commit()
-    return render_template('trainer_clients.html', trainer=trainer)
+        return make_response(jsonify(client.to_dict()),200)
+    # return render_template('trainer_clients.html', trainer=trainer)
 
 @app.route('/trainer/<int:training_type_id>/trainings', methods=['GET', 'POST'])
 def trainer_trainings(trainer_id):
@@ -76,7 +90,9 @@ def trainer_trainings(trainer_id):
         training_type = Training.query.get(training_type_id)
         trainer.training_types.append(training_type)
         db.session.commit()
-    return render_template('trainer_trainings.html', trainer=trainer, training_types=Training.query.all())
+
+        return make_response (jsonify(training_type.to_dict()),)
+    # return render_template('trainer_trainings.html', trainer=trainer, training_types=Training.query.all())
 
 
 

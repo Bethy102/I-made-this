@@ -11,6 +11,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import JoinNow from './components/JoinNow';
+import Trainers from './components/Trainers';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/about" element={<AboutPage/>} />
         <Route path="/contact" element={<ContactPage/>} />
         <Route path="/joinnow" element={<JoinNow/>} />
+        <Route path="/trainers" element={<Trainers/>} />
 
       </Routes>
       <Footer/>

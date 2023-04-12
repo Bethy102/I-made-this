@@ -6,7 +6,7 @@ const services = () => {
         <div>
             <TrainingCard imageLink={require("../images/Powerlifting.jpg")}>
                 <span>General Strength Training (resistance, weigth training)</span>
-                <p>Monthly stength coaching is idela for idivudauls looking to start
+                <p>Monthly stength coaching is idela for individuals looking to start
                 their strength journey, improve their bone health, or optimize performance.
                  1:1 in-person session 
                  Access to our online platform that displays your personalized strength plan.

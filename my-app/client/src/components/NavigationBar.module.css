@@ -8,10 +8,12 @@
 }
 .navBarContainer h1:hover{
     cursor: pointer;
+    color: rgb(255, 174, 0);
 }
 
 .navBarContainer h1 {
     padding-left: 14px;
+    font-family: 'Rubik Pixels', cursive;
 }
 
 .navLinksContainer {
@@ -24,10 +26,12 @@
     text-decoration: none;
     color: black;
     transition: color 1s ease;
-    font-weight: 500
+    font-weight: 500;
+    font-family: 'Inspiration', cursive
   
 }
 
 .navLinksContainer a:hover {
-    color: purple;
+    color: rgb(255, 174, 0);
+    cursor: pointer;
 }
