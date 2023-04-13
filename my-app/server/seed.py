@@ -43,9 +43,17 @@ with app.app_context():
 
     # Give each trainer some expertises
     for trainer in Trainer.query.all():
-        start_index = 0
-        end_index = len(training_types)
-        expertises = training_types[start_index:end_index]
+        expertises = []
+        num_of_expertises = randint(1, 4)
+        print(num_of_expertises)
+        copy_training_types = training_types.copy()
+        for i in range(num_of_expertises):
+            random_expertise = choice(copy_training_types)
+            copy_training_types.remove(random_expertise)
+            expertises.append(random_expertise)
+        # start_index = 0
+        # end_index = len(training_types)
+        # expertises = training_types[start_index:end_index]
         for expertise in expertises:
             new_expertise = Expertise(
                 name = expertise,

@@ -2,5 +2,8 @@
   "dependencies": {
     "firebase": "^9.19.1",
     "firebase-auth": "^0.1.2"
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.10.0"
   }
 }

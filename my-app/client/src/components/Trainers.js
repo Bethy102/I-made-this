@@ -26,7 +26,9 @@ const TrainersList = () => {
                                     
                         <h2>{profile.name}</h2>
                         <p> Platform: {profile.platform}</p>
-                        <p> Expertise : {profile.expertise}</p>
+                        <p> Expertises : {profile.expertises.map(expertise => {
+                            return expertise.type + ", " 
+                            })}</p>
                         <p>Price : {profile.price}</p>
                         <p>Bio: {profile.bio}</p>
                         {/* <button>View Profile</button> */}

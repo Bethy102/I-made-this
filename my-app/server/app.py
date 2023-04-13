@@ -1,5 +1,9 @@
-from flask import Flask, make_response, request, jsonify
+from flask import Flask, make_response, request, jsonify, session, abort
 from flask_migrate import Migrate
+# from flask_restful import Api, Resource
+from werkzeug.exceptions import NotFound, Unauthorized
+
+# from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 # from app import app, db
@@ -8,10 +12,16 @@ from models import Trainer, Client, Training, db, Expertise
 
 # Create the Flask application instance
 app = Flask(__name__)
+# CORS(app)
 
 #Load the configuration from environment variables
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' # Replace 'database.db' with the path to your database file
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.json.compact = False
 
+#Set up
+    # generate a secrete key `python -c 'import os; print(os.urandom(16))'`
+app.secret_key = 'Secret Key Here!'
 #Create the SQLAlchemy instance and bind it to the app 
 # db = SQLAlchemy(app)
 db.init_app(app)
@@ -19,6 +29,10 @@ db.init_app(app)
 #Create the database migration instance and bind it to the application and the database
 
 migrate = Migrate(app, db)
+# api = Api(app)
+
+
+
 
 
 @app.route('/')
@@ -43,8 +57,8 @@ def expertises():
     return make_response(jsonify(expertises_dicts), 200)
 
 @app.route('/expertises/<int:trainer_id>', methods=['GET'])
-def  get_expertises ():
-    expertises = Expertise.query.get()
+def  get_expertises (trainer_id):
+    expertises = Expertise.query.get(trainer_id)
     return make_response(jsonify(expertises.to_dict()),200)
 
 
@@ -93,6 +107,74 @@ def trainer_trainings(trainer_id):
 
         return make_response (jsonify(training_type.to_dict()),)
     # return render_template('trainer_trainings.html', trainer=trainer, training_types=Training.query.all())
+
+
+
+
+
+
+
+
+
+
+
+
+
+#  #1. User
+
+# class Users(Resource):
+#     def post(self):
+#         form_json = request.get_json()
+#         new_user = User(
+#             name=form_json['name'],
+#             email=form_json['email']
+#             )
+#         db.session.add(new_user)
+#         db.session.commit()
+#         session['user_id'] = new_user.id
+#         response = make_response (
+#             new_user.to_dict(), 201
+#         )
+#         return response
+#     api.add_response(Users, '/users')
+
+#     # 2. Test this route in the clientsrc/component/Authentication.js
+#     # 3. Create a Login route
+#         # 3.1 Create a login class that inherits from Resource
+#     # 3.2 Use api.add_resource to add the '/login' path
+#     # 3.3 Build out the post method
+#         # 3.3.1 convert the request from json and select the user name sent form the client. 
+#         # 3.3.2 Use the name to query the user with a .filter
+#         # 3.3.3 If found set the user_id to the session hash
+#         # 3.3.4 convert the user to_dict and send a response back to the client 
+#     #3.4 Toggle the signup form to login and test the login route
+# class Login(Resource):
+#     def post(self):
+#         user = Client.query.filter_by(name=request.get_json()['name']).first()
+#         session['user_id'] = user.id
+#         response = make_response(
+#             user.to_dict(),
+#             200
+#         )
+#         return response
+
+# api.add_resource(Login, '/login')
+
+# # 4. Create an AuthorizedSession class that inherites from Resource 
+# class AuthorizedSession(Resource):
+#     def get(self):
+#         user = Client.query.filter_by(id=session.get('user_id')).first()
+#         if user:
+#             response = make_response(
+#                 user.to_dict(),
+#                 200
+#             )
+#             return response
+#         else:
+#             abort(401, "Unauthorized")
+# api.add_resource(AuthorizedSession, '/authorized')
+# # 5. Head back to client/src?app.js to restrict access to tour app!
+# # 6. Logout
 
 
 

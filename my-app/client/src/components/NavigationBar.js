@@ -12,7 +12,7 @@ const NavigationBar = () => {
             <a onClick={() => navigate ("trainers")}> TRAINERS</a>
             <a onClick={() => navigate ("/services")}>SERVICES</a>
             <a onClick={() => navigate ("contact")}>CONTACT</a>
-            <a onClick={() => navigate ("join")}>JOIN NOW</a>
+            <a onClick={() => navigate ("joinnow")}>JOIN NOW</a>
             <a href="#">TEAM</a>
         </div>
     </div>

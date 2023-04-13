@@ -45,6 +45,7 @@ class Trainer(db.Model):
             'bio': self.bio,
             # 'expertises': self.expertises,
             'image_url': self.image_url,
+            'expertises': [expertise.to_dict() for expertise in self.expertises]
         }
 
 
@@ -101,6 +102,8 @@ class Client(db.Model):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     trainings = db.relationship('Training', backref='clients')
+
+    
 
 
 
