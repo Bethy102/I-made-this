@@ -1,7 +1,7 @@
 import styles from "./NavigationBar.module.css"
 import {useNavigate} from "react-router-dom";
 
-const NavigationBar = () => {
+const NavigationBar = ({authUser}) => {
     const navigate = useNavigate();
 
  return (
@@ -12,8 +12,8 @@ const NavigationBar = () => {
             <a onClick={() => navigate ("trainers")}> TRAINERS</a>
             <a onClick={() => navigate ("/services")}>SERVICES</a>
             <a onClick={() => navigate ("contact")}>CONTACT</a>
-            <a onClick={() => navigate ("joinnow")}>JOIN NOW</a>
-            <a href="#">TEAM</a>
+            <a onClick={() => navigate ("SignUp")}>SIGN UP</a>
+            <a onClick={() => navigate ("signin")}>SIGN IN</a>
         </div>
     </div>
  )

@@ -44,7 +44,7 @@ with app.app_context():
     # Give each trainer some expertises
     for trainer in Trainer.query.all():
         expertises = []
-        num_of_expertises = randint(1, 4)
+        num_of_expertises = randint(1, 3)
         print(num_of_expertises)
         copy_training_types = training_types.copy()
         for i in range(num_of_expertises):

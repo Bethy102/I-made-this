@@ -10,9 +10,12 @@ import TrainingCard from './components/TrainingCard';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
-import JoinNow from './components/JoinNow';
 import Trainers from './components/Trainers';
-import LogIn from './components/LogIn';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import AuthDetails from './components/AuthDetails';
+// import joinNow from './components/JoinNow';
+// import LogIn from './components/LogIn';
 
 function App() {
   return (
@@ -37,11 +40,18 @@ function App() {
         <Route path="/services" element={<ServicesPage/>} />
         <Route path="/about" element={<AboutPage/>} />
         <Route path="/contact" element={<ContactPage/>} />
-        <Route path="/joinnow" element={<JoinNow/>} />
-        <Route path="/trainers" element={<Trainers/>} />
-        <Route path="/login" element={<LogIn/>} />
+        <Route path="/trainers/" element={<Trainers/>} />
+
+        <Route path="/trainers/:trainingType" element={<Trainers/>} />
+        <Route path="/signin" element={<SignIn/>} />
+        {/* <Route path="/login" element={<LogIn/>} /> */}
+        <Route path="/SignUp" element={<SignUp/>} />
 
       </Routes>
+      <AuthDetails/>
+      
+
+        
       <Footer/>
     </div>
   );

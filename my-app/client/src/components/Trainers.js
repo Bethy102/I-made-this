@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import TrainersProfile from './TrainersProfile';
+import TrainersProfile from './TrainersCard';
+import { useParams } from 'react-router-dom';
 
 const TrainersList = () => {
     const [profiles, setProfiles] = useState([
@@ -14,20 +15,25 @@ const TrainersList = () => {
 
     ])
 
+    const { trainingType } = useParams()
+
+    const filteredTrainers = trainingType ?  profiles.filter(profile => profile.expertises.find(expertise => expertise.type === trainingType)) : profiles
+
     useEffect(() => {
+        console.log(trainingType)
         fetch("/trainers")
             .then((response) => response.json())
             .then((trainersProfile) => (setProfiles(trainersProfile)));
     }, []);
         return (
             <div>
-                {profiles.map((profile) => (
+                {filteredTrainers.map((profile) => (
                     <TrainersProfile picture={require("../images/cropped-Ella Pic.jpg")} key={profile.id}>
                                     
                         <h2>{profile.name}</h2>
                         <p> Platform: {profile.platform}</p>
                         <p> Expertises : {profile.expertises.map(expertise => {
-                            return expertise.type + ", " 
+                            return expertise.type + " , " + "" 
                             })}</p>
                         <p>Price : {profile.price}</p>
                         <p>Bio: {profile.bio}</p>

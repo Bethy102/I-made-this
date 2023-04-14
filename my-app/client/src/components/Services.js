@@ -1,10 +1,10 @@
-import styles from "./Services.module.css";
+// import styles from "./Services.module.css";
 import TrainingCard from "./TrainingCard";
 
 const services = () => {
     return (
         <div>
-            <TrainingCard imageLink={require("../images/Powerlifting.jpg")}>
+            <TrainingCard imageLink={require("../images/Powerlifting.jpg")} trainingType={"Strength Training"}>
                 <span>General Strength Training (resistance, weigth training)</span>
                 <p>Monthly stength coaching is idela for individuals looking to start
                 their strength journey, improve their bone health, or optimize performance.
