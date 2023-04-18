@@ -4,7 +4,7 @@ import OurStory from "./OurStory";
 const About = () => {
     return (
         <div>
-            <OurStory imageLink={require("../images/certified_personal_trainer.jpg")}>
+            <OurStory imageLink={"../../public/images/certified_personal_trainer.jpg"}>
                 
             </OurStory>
         </div>

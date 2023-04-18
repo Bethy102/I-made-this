@@ -4,7 +4,7 @@ const ContactPage = () => {
     return (
         <div>
             <div className={styles.content}>
-                <img src={require("../images/contactUs.jpg")}></img>
+                <img src={"../../public/images/contactUs.jpg"}></img>
                 <span>LET'S WORK TOGETHER</span>
                     <p>We are so excited to begin working with you. If you'd like some more<br/>
                     information about the path you should take regarding fitness, wellness and <br/>

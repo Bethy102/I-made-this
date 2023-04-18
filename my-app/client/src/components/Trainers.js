@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import TrainersProfile from './TrainersCard';
 import { useParams } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
+import styles from "./Trainers.module.css";
+
 
 const TrainersList = () => {
     const [profiles, setProfiles] = useState([
@@ -20,15 +23,18 @@ const TrainersList = () => {
     const filteredTrainers = trainingType ?  profiles.filter(profile => profile.expertises.find(expertise => expertise.type === trainingType)) : profiles
 
     useEffect(() => {
-        console.log(trainingType)
+        // console.log(trainingType)
         fetch("/trainers")
             .then((response) => response.json())
             .then((trainersProfile) => (setProfiles(trainersProfile)));
     }, []);
         return (
-            <div>
+            <div className={styles.container}>
+            <div className={styles.row}>
+
                 {filteredTrainers.map((profile) => (
-                    <TrainersProfile picture={require("../images/cropped-Ella Pic.jpg")} key={profile.id}>
+                    <div className="col-md-4 mb-4">
+                    <TrainersProfile picture={profile.image_url}  key={profile.id}>
                                     
                         <h2>{profile.name}</h2>
                         <p> Platform: {profile.platform}</p>
@@ -39,8 +45,10 @@ const TrainersList = () => {
                         <p>Bio: {profile.bio}</p>
                         {/* <button>View Profile</button> */}
                     </TrainersProfile>
+                    </div>
                 ))}
             </div>
+        </div>
         )
 
 

@@ -1,0 +1,11 @@
+.row {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
