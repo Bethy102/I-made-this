@@ -3,19 +3,11 @@ import TrainersProfile from './TrainersCard';
 import { useParams } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import styles from "./Trainers.module.css";
+import TrainersContext from './TrainersContext';
 
 
 const TrainersList = () => {
     const [profiles, setProfiles] = useState([
-        // {
-        //     name: 'Ella',
-        //     Location: 'Quebec',
-        //     Expertise: 'bodybuilding',
-        //     Style: 'online in-person',
-        //     Bio: 'Lazy Fat'
-
-        // },
-
     ])
 
     const { trainingType } = useParams()
@@ -29,12 +21,15 @@ const TrainersList = () => {
             .then((trainersProfile) => (setProfiles(trainersProfile)));
     }, []);
         return (
+            
             <div className={styles.container}>
             <div className={styles.row}>
 
                 {filteredTrainers.map((profile) => (
                     <div className="col-md-4 mb-4">
                     <TrainersProfile picture={profile.image_url}  key={profile.id}>
+                    <TrainersContext.Provider value={{}}>
+                    </TrainersContext.Provider>
                                     
                         <h2>{profile.name}</h2>
                         <p> Platform: {profile.platform}</p>

@@ -4,7 +4,7 @@ import TrainingCard from "./TrainingCard";
 const services = () => {
     return (
         <div>
-            <TrainingCard imageLink={"../../public/images/Powerlifting.jpg"} trainingType={"Strength Training"}>
+            <TrainingCard imageLink={"../../images/Powerlifting.jpg"} trainingType={"Strength Training"}>
                 <span>General Strength Training (resistance, weigth training)</span>
                 <p>Monthly stength coaching is idela for individuals looking to start
                 their strength journey, improve their bone health, or optimize performance.
@@ -17,7 +17,7 @@ const services = () => {
                 Increases bone density, especially vital as women age, due to the risk of osteoporosis. <br/>
                 Builds good posture Strengthens joints thus reducing muscular imbalance issues.</p>
             </TrainingCard>
-            <TrainingCard imageLink={"../../public/images/Yoga.webp"}>
+            <TrainingCard imageLink={"../../images/Yoga.webp"}>
             <span>Flexibity training (Stretching, Yoga, Pilates)</span>
             <p>Flexibilty is more than being able to touvh your tooes. It's about general musculoskeletal health.<br/>
                 Every stetch can be either static or dynamic ans passive or active. Benefit of Fleibility training 
@@ -29,7 +29,7 @@ const services = () => {
                 Reduces the risk of injury associated with other exercises and  movements
                 </p>
             </TrainingCard>
-            <TrainingCard imageLink={"../../public/images/runner.jpg"}>
+            <TrainingCard imageLink={"../../images/runner.jpg"}>
             <span>Running training (Cardio, Marathon, Sprint)</span>
             <p> Monthly run coaching for new or experienced runners looking to minimize injury and optimize performance while training for a race or recreational fitness.
                 1:1 virtual or live kick-off meeting.
@@ -44,7 +44,7 @@ const services = () => {
                 Lowers the risk of diabetes</p>
 
             </TrainingCard>
-            <TrainingCard imageLink={"../../public/images/nutrition.png"}>
+            <TrainingCard imageLink={"../../images/nutrition.png"}>
             <span> Hungry for Health? Nutrition </span>
             <p> Chef-crafted meals with care and love at your door . 
             All of our Wellness and Nutrition coaches are certified. 
@@ -52,7 +52,7 @@ const services = () => {
             and performance goals through delicious foods.</p>
             </TrainingCard>
 
-            <TrainingCard imageLink={"../../public/images/bodybuilding.webp"}>
+            <TrainingCard imageLink={"../../images/bodybuilding.webp"}>
             <span> bodybuilding</span>
             <p> Build muscle, get strong, gain strength lose weight, get fit, boost your performance or even compete
             Either for aestheti, career or even personal purposes, our bodybuilding program is the answer to many questions where everyone can be related .

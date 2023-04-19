@@ -44,7 +44,7 @@
 
 .mainContainer {
     position: relative;
-    background-image: url("../../public/images/background.jpg");
+    background-image: url("../../public/images/back.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -52,11 +52,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .mainContainer h2 {
-    font-size: 50px;
-    color: white;
-    margin-top: 110px;
-    width: 600px;
+    font-size: 30px;
+    color:black;
+    width: 100%;
+    font-family: 'Rubik Pixels', cursive;
+    /* margin-top:12; */
+    margin-bottom: 27.83em;
+    /* margin-top: 20px; */
+    /* width: 600px; */
 }

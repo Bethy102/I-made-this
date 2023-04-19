@@ -4,57 +4,80 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
+
 const TrainersCard = ({ picture, children }) => {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [formValues, setFormValues] = useState({
-    name: '',
-    email: '',
-    phone: ''
+    name: '', email: '', phone: '',
+    selectedDate:'', // store the selected date here
   });
   const [clientInfo, setClientInfo] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
+    name: '', email: '', phone: '', message: '',
   });
+
+  // const handleDateClick = (arg) => {
+  //   // console.log(arg);
+  //   // console.log(arg.view.active)
+  //   setSelectedDate(arg.dateStr);
+
+  //   // console.log(selectedDate);
+  //   setShowModal(true);
+
+  //   setFormValues({
+  //     ...formValues,
+  //     selectedDate: arg.dateStr //set the selected date in formValues
+  //   });
+  // };
 
   const handleDateClick = (arg) => {
     setSelectedDate(arg.dateStr);
-    console.log(arg)
     setShowModal(true);
+    setFormValues({
+      ...formValues,
+      selectedDate: arg.dateStr
+    });
   };
 
-  const handleFormSubmit = (event) => {
+  //  const handleFormChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormValues({
+  //     ...formValues,
+  //     [name]: value
+  //   });
+  //  };
+
+  const handleFormSubmit = (event, selectedDate) => {
     event.preventDefault();
+    const startDate = selectedDate; // get the selected date from formValues
+    console.log('Client information:', clientInfo);
+    console.log('Start Date:', startDate);
+    // const endDate = selectedDate;
     // Handle submitting the form data for the selected date
     // and redirect the client to a confirmation page
     console.log('Client information:', clientInfo);
+    console.log('Start Date:', startDate);
+    // console.log('End Date:', endDate);
     alert(`You have successfully booked a session for ${selectedDate}`);
     setSelectedDate(null); // clear the selected date
     setShowCalendar(false); // close the calendar modal
     setShowModal(false);
-    setClientInfo({
+    setFormValues({
       name: '',
       email: '',
       phone: '',
       message: '',
+      selectedDate: '' // clear the selected date in formValues
     });
   };
 
-  const handleFormChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues({
-      ...formValues,
-      [name]: value
-    });
-  };
+  
 
   return (
     <div>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img style={{ width: '200px' }} variant="top" src={picture} />
+      <Card style={{ width: '20rem' }}>
+        <Card.Img style={{ width: '20rem'}} variant="top" src={picture} />
         <Card.Body>
           <Card.Title>Profile</Card.Title>
           <Card.Text>{children}</Card.Text>
@@ -93,8 +116,19 @@ const TrainersCard = ({ picture, children }) => {
           <Modal.Body>
             <Form onSubmit={handleFormSubmit}>
               <Form.Group>
-                <Form.Label>Selected Date: </Form.Label>
-                <Form.Control type="text" id="date" value={selectedDate} readOnly />
+                {/* <Form.Label>Selected Date: </Form.Label> */}
+                {/* <Form.Control type="text" name="selectedDate" value={formValues.selectedDate} selected={true} readOnly/> */}
+                <Form.Group>
+                  <Form.Label>Selected Date: </Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="selectedDate"
+                    value={selectedDate}
+                    selected={false}
+                    readOnly
+                  />
+                </Form.Group>
+
               </Form.Group>
               <Form.Group>
             <Form.Label>Name</Form.Label>
@@ -112,7 +146,7 @@ const TrainersCard = ({ picture, children }) => {
             <Form.Label>Message</Form.Label>
             <Form.Control as="textarea" rows={3} placeholder="Enter your message" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit"> 
             Submit
           </Button>
           <Button variant="secondary" onClick={() => setShowModal(false)}>

@@ -7,7 +7,7 @@ const OurStory = ({ children, imageLink}) => {
             <img src={imageLink} alt="image" />
             <div className={styles.trainingInfoWrapper}>
                 {children}
-                <button>Join the Family</button>
+                {/* <button>Join the Family</button> */}
             </div>
         </div>
        
