@@ -10,8 +10,11 @@ const TrainersCard = ({ picture, children }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [formValues, setFormValues] = useState({
-    name: '', email: '', phone: '',
+    name: '', 
+    email: '',
+    phone: '',
     selectedDate:'', // store the selected date here
+    message: '',
   });
   const [clientInfo, setClientInfo] = useState({
     name: '', email: '', phone: '', message: '',
@@ -40,13 +43,19 @@ const TrainersCard = ({ picture, children }) => {
     });
   };
 
-  //  const handleFormChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormValues({
-  //     ...formValues,
-  //     [name]: value
-  //   });
-  //  };
+  const handleDateChange = (event) => {
+    console.log(event.target.value)
+    console.log(typeof(event.target.value))
+  }
+
+   const handleFormChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value
+    });
+    console.log(formValues)
+   };
 
   const handleFormSubmit = (event, selectedDate) => {
     event.preventDefault();
@@ -59,7 +68,7 @@ const TrainersCard = ({ picture, children }) => {
     console.log('Client information:', clientInfo);
     console.log('Start Date:', startDate);
     // console.log('End Date:', endDate);
-    alert(`You have successfully booked a session for ${selectedDate}`);
+    alert(`You have successfully booked a session for ${formValues.selectedDate}`);
     setSelectedDate(null); // clear the selected date
     setShowCalendar(false); // close the calendar modal
     setShowModal(false);
@@ -121,30 +130,30 @@ const TrainersCard = ({ picture, children }) => {
                 <Form.Group>
                   <Form.Label>Selected Date: </Form.Label>
                   <Form.Control
-                    type="text"
+                    type="date"
                     name="selectedDate"
-                    value={selectedDate}
-                    selected={false}
-                    readOnly
+                    value={formValues.selectedDate}
+                    selected={true}
+                    onChange={handleFormChange}
                   />
                 </Form.Group>
 
               </Form.Group>
               <Form.Group>
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter your name" required />
+            <Form.Control value={formValues.name} name="name" onChange={handleFormChange} type="text" placeholder="Enter your name" required />
           </Form.Group>
           <Form.Group>
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter your email" required />
+            <Form.Control onChange={handleFormChange} value={formValues.email} name="email" type="email" placeholder="Enter your email" required />
           </Form.Group>
           <Form.Group>
             <Form.Label>Phone</Form.Label>
-            <Form.Control type="tel" placeholder="Enter your phone number" required />
+            <Form.Control onChange={handleFormChange} value={formValues.phone} name="phone" type="tel" placeholder="Enter your phone number" required />
           </Form.Group>
           <Form.Group>
             <Form.Label>Message</Form.Label>
-            <Form.Control as="textarea" rows={3} placeholder="Enter your message" />
+            <Form.Control onChange={handleFormChange} value={formValues.message} name="message" as="textarea" rows={3} placeholder="Enter your message" />
           </Form.Group>
           <Button variant="primary" type="submit"> 
             Submit

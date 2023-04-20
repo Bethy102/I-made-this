@@ -37,7 +37,7 @@ const TrainersList = () => {
                             return expertise.type + " , " + "" 
                             })}</p>
                         <p>Price : {profile.price}</p>
-                        <p>Bio: {profile.bio}</p>
+                        <p>Bio: {profile.bio} </p>
                         {/* <button>View Profile</button> */}
                     </TrainersProfile>
                     </div>

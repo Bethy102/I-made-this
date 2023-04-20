@@ -5,9 +5,9 @@ const NavigationBar = ({authUser}) => {
     const navigate = useNavigate();
 
  return (
-    <div class={styles.navBarContainer}>
+    <div className={styles.navBarContainer}>
         <h1 onClick={() => navigate("/")}>IRON_FITWELL_NESS</h1>
-        <div class={styles.navLinksContainer}>
+        <div className={styles.navLinksContainer}>
             <a onClick={() => navigate ("about")}>ABOUT</a>
             <a onClick={() => navigate ("trainers")}> TRAINERS</a>
             <a onClick={() => navigate ("/services")}>SERVICES</a>
