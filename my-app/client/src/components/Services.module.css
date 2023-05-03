@@ -1,0 +1,21 @@
+/* .container {
+}
+
+.container img {
+    width: 327px;
+    height:10px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    display:flex;
+    justify-content: space-around;
+    /* padding-left: 5%; */
+}
+
+.container p {
+    /* width: 50%;
+    height: 326px;
+
+    font-size: 1rem;
+    line-height: 2rem;
+    letter-spacing: 2px; */
+}

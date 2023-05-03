@@ -1,0 +1,38 @@
+.navBarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid gray;
+    background-color: white;
+}
+.navBarContainer h1:hover{
+    cursor: pointer;
+    color: rgb(255, 174, 0);
+}
+
+.navBarContainer h1 {
+    padding-left: 14px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.navLinksContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.navLinksContainer a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    transition: color 1s ease;
+    font-weight: 500;
+    font-family: 'Inspiration', cursive
+  
+}
+
+.navLinksContainer a:hover{
+    cursor: pointer;
+    color: rgb(255, 174, 0);
+    
+}
